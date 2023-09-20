@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-12">
+    <h3>Basic Information</h3>
+    <dl class="row">
+      <dt class="col-sm-3">Threat Type</dt>
+      <dd class="col-sm-9">{{ threat_type }}</dd>
+
+      <dt class="col-sm-3">Threat Type Description</dt>
+      <dd class="col-sm-9">{{ threat_type_desc }}</dd>
+
+      <dt class="col-sm-3">Malware Type</dt>
+      <dd class="col-sm-9">{{ malware }}</dd>
+
+      <dt class="col-sm-3">Malware Alias</dt>
+      <dd class="col-sm-9">{{ malware_alias }}</dd>
+    </dl>
+  </div>
+</div>
+
+{% if malware_samples %}
+<div class="row">
+  <div class="col-12">
+    <h3>Additional Malware Samples</h3>
+    <dl class="row">
+      {% for sample in malware_samples %}
+      <dt class="col-sm-3">Timestamp</dt>
+      <dd class="col-sm-9">{{ sample.time_stamp }}</dd>
+
+      <dt class="col-sm-3">SHA256 Hash</dt>
+      <dd class="col-sm-9">{{ sample.sha256_hash }}</dd>
+
+      <dt class="col-sm-3">MD5 Hash</dt>
+      <dd class="col-sm-9">{{ sample.md5_hash }}</dd>
+
+      <dt class="col-sm-3">Malware Bazaar Link</dt>
+      <dd class="col-sm-9">{{ sample.malware_bazaar }}</dd>
+      {% endfor %}
+    </dl>
+  </div>
+</div>
+{% endif %}

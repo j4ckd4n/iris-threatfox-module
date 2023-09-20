@@ -22,13 +22,13 @@ import setuptools
 
 
 setuptools.setup(
-     name='iris_vt_module',
+     name='iris_threatfox_module',
      version='1.2.0',
-     packages=['iris_vt_module', 'iris_vt_module.vt_handler'],
-     author="DFIR-IRIS",
+     packages=['iris_threatfox_module', 'iris_threatfox_module.threatfox_handler'],
+     author="j4ckd4n",
      author_email="contact@dfir-iris.org",
-     description="An interface module for VT and DFIR-IRIS",
-     long_description="An interface module for VT and DFIR-IRIS",
+     description="An interface module for ThreatFox and DFIR-IRIS",
+     long_description="An interface module for ThreatFox and DFIR-IRIS",
      long_description_content_type="text/markdown",
      url="https://github.com/dfir-iris/iris-client",
      classifiers=[
@@ -37,7 +37,7 @@ setuptools.setup(
          "Operating System :: OS Independent",
      ],
      install_requires=[
-        "virustotal-api==1.1.11",
+        "requests",
         "setuptools",
         "pyunpack"
     ]

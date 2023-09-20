@@ -69,6 +69,18 @@ def gen_domain_report_from_template(html_template, vt_report) -> IrisInterfaceSt
 
     return IrisInterfaceStatus.I2Success(data=rendered)
 
+def gen_ioc_report_from_template(html_template, ioc_report) -> IrisInterfaceStatus:
+    template = Template(html_template)
+    context = ioc_report
+
+    try:
+        rendered = template.render(context)
+    except Exception:
+        print(traceback.format_exc())
+        log.error(traceback.format_exc())
+        return IrisInterfaceStatus.I2Error(traceback.format_exc())
+
+    return IrisInterfaceStatus.I2Success(data=rendered)
 
 def gen_ip_report_from_template(html_template, vt_report) -> IrisInterfaceStatus:
     """
