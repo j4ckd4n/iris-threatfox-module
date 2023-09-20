@@ -55,7 +55,10 @@ class IrisThreatFoxInterface(IrisModuleInterface):
     in_status = InterfaceStatus.IIStatus(code=InterfaceStatus.I2CodeNoError)
 
     for element in data:
-      if element.ioc_type.type_name in ['ip-', 'domain', 'md5', 'sha1', 'sha256', 'sha512']:
+      if element.ioc_type.type_name in ['domain', 'md5', 'sha1', 'sha256', 'sha512']:
+        status = threatfox_handler.handle_ioc(ioc=element)
+        in_status = InterfaceStatus.merge_status(in_status, status)
+      elif 'ip-' in element.ioc_type.type_name:
         status = threatfox_handler.handle_ioc(ioc=element)
         in_status = InterfaceStatus.merge_status(in_status, status)
       else:

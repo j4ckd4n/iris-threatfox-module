@@ -6,7 +6,7 @@ from iris_interface.IrisModuleInterface import IrisPipelineTypes, IrisModuleInte
 import iris_interface.IrisInterfaceStatus as InterfaceStatus
 from app.datamgmt.manage.manage_attribute_db import add_tab_attribute_field
 
-from threatfox_helper import gen_ioc_report_from_template
+from iris_threatfox_module.threatfox_handler.threatfox_helper import gen_ioc_report_from_template
 
 class ThreatFoxHandler(object):
   def __init__(self, mod_config, server_config, logger):
